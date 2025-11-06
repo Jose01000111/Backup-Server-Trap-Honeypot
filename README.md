@@ -5,22 +5,16 @@ I’m running a Rocky Linux honeypot that simulates a corporate backup server. M
 
 The honeypot runs in an isolated environment to prevent unauthorized access or exfiltration, while providing realistic bait files and banners to attract potential threats. This setup allows me to **practice detection, analysis, and containment** in a safe, controlled environment.
 
----
-
 ## 🎯 What I’m Learning
 - I can see how attacker behavior appears in logs and PCAPs (scans, brute-force attempts, reconnaissance).  
 - I can generate IR artifacts like timelines, suspicious command logs, and network traces.  
 - I practice safe honeypot operation while collecting actionable intelligence.
-
----
 
 ## ⚠️ Safety Considerations
 - I make sure the VM is fully isolated from production networks.  
 - I use non-root accounts to handle all honeypot artifacts.  
 - I monitor SELinux for denials and adjust policies as needed.  
 - I deploy honeypots only on systems where I have proper authorization.
-
----
 
 ## 🔧 Utilities & Technologies I’m Using
 
