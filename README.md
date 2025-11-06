@@ -39,26 +39,26 @@ I update the system and install all required utilities. I enable logging and fir
 ---
 
 ### 2️⃣ Configure Hostname
-I assign a realistic hostname (`backup-HP-01`) and update the hosts file to make the honeypot appear like a corporate backup server. This improves the chances that attackers will interact with it.
+### I assign a realistic hostname (`backup-HP-01`) and update the hosts file to make the honeypot appear like a corporate backup server. This improves the chances that attackers will interact with it.
 
 <img width="813" height="657" alt="TkPMROL" src="https://github.com/user-attachments/assets/babaaf46-841c-47e0-800e-a7a5fa734ea8" />
 
 ---
 
 ### 3️⃣ Verify Functionality
-I perform test captures and log entries to ensure that packet capturing and logging are working properly before adding bait content.
+### I perform test captures and log entries to ensure that packet capturing and logging are working properly before adding bait content.
 
 ### 4️⃣ Create Honeypot User & Directories
-I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
+### I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
 
 ### 5️⃣ Lock Down the Network
-I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
+### I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
 
 ### 6️⃣ Test Logging & Captures
-I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
+### I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
 
 ### 7️⃣ Optional: Add Bait Content
-I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
+### I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
 
 ---
 
