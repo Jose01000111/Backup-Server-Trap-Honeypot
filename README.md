@@ -1,1 +1,74 @@
-# Backup-Server-Trap-Honeypot
+# 🛡️ Backup-Server Trap Honeypot 🗄️
+
+## 📖 Summary
+I’m running a Rocky Linux honeypot that simulates a corporate backup server. My goal is to **observe attacker behavior**, study how malicious activity appears in logs and packet captures, and **learn how to produce actionable artifacts** for incident response (IR) and stakeholder reporting.
+
+The honeypot runs in an isolated environment to prevent unauthorized access or exfiltration, while providing realistic bait files and banners to attract potential threats. This setup allows me to **practice detection, analysis, and containment** in a safe, controlled environment.
+
+---
+
+## 🎯 What I’m Learning
+- I can see how attacker behavior appears in logs and PCAPs (scans, brute-force attempts, reconnaissance).  
+- I can generate IR artifacts like timelines, suspicious command logs, and network traces.  
+- I practice safe honeypot operation while collecting actionable intelligence.
+
+---
+
+## ⚠️ Safety Considerations
+- I make sure the VM is fully isolated from production networks.  
+- I use non-root accounts to handle all honeypot artifacts.  
+- I monitor SELinux for denials and adjust policies as needed.  
+- I deploy honeypots only on systems where I have proper authorization.
+
+---
+
+## 🔧 Utilities & Technologies I’m Using
+
+| Tool / Technology | Purpose | Notes |
+|------------------|---------|-------|
+| 🖥️ Rocky Linux | Base operating system | Latest stable version |
+| 📡 tcpdump | Network packet capture | I save PCAP files to analyze traffic |
+| 📜 rsyslog | System logging | I monitor and store log events |
+| 🛡️ firewalld | Network isolation & egress control | I block outbound traffic to prevent misuse |
+| 🛠️ vim, git, wget, curl, net-tools | System management & troubleshooting | Core tools I use for setup and monitoring |
+| 🔐 SELinux tools (policycoreutils) | Security enforcement | I monitor and adjust SELinux policies as needed |
+| 👤 Non-root honeypot user | Artifact ownership | I ensure logs and captures remain isolated |
+| 📊 Optional SIEM (Splunk, ELK) | Log ingestion & visualization | I forward logs for correlation and visualization |
+
+---
+
+### 1️⃣ Update & Install Tools
+I update the system and install all required utilities. I enable logging and firewall services so I can **capture activity and control network traffic** from the start.
+
+<img width="1009" height="685" alt="2V0K7Bu" src="https://github.com/user-attachments/assets/9a1a4664-5aa4-4ef0-890f-0b2208bd7ad0" />
+
+---
+
+### 2️⃣ Configure Hostname
+I assign a realistic hostname (`backup-HP-01`) and update the hosts file to make the honeypot appear like a corporate backup server. This improves the chances that attackers will interact with it.
+
+<img width="813" height="657" alt="TkPMROL" src="https://github.com/user-attachments/assets/babaaf46-841c-47e0-800e-a7a5fa734ea8" />
+
+---
+
+### 3️⃣ Verify Functionality
+I perform test captures and log entries to ensure that packet capturing and logging are working properly before adding bait content.
+
+### 4️⃣ Create Honeypot User & Directories
+I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
+
+### 5️⃣ Lock Down the Network
+I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
+
+### 6️⃣ Test Logging & Captures
+I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
+
+### 7️⃣ Optional: Add Bait Content
+I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
+
+---
+
+## 📈 Next Steps
+- I plan to forward selected logs and captures to a SIEM for visualization and correlation.  
+- I will create a short IR playbook covering detection, triage, containment, and evidence collection.  
+- I run exercises to detect attacks and produce concise, professional reports for stakeholders.
