@@ -5,6 +5,8 @@ I’m running a Rocky Linux honeypot that simulates a corporate backup server. M
 
 The honeypot runs in an isolated environment to prevent unauthorized access or exfiltration, while providing realistic bait files and banners to attract potential threats. This setup allows me to **practice detection, analysis, and containment** in a safe, controlled environment.
 
+![hOVCjrY](https://github.com/user-attachments/assets/beb12736-3360-4325-8602-fc6e8cd2580b)
+
 ## 🎯 What I’m Learning
 - I can see how attacker behavior appears in logs and PCAPs (scans, brute-force attempts, reconnaissance).  
 - I can generate IR artifacts like timelines, suspicious command logs, and network traces.  
