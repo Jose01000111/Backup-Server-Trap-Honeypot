@@ -51,33 +51,51 @@ I update the system and install all required utilities. I enable logging and fir
 <img width="813" height="657" alt="TkPMROL" src="https://github.com/user-attachments/assets/babaaf46-841c-47e0-800e-a7a5fa734ea8" />
 
 # 🖥️ Bash Shell — What Is It Doing?
-
+- **`hostnamectl set-hostname backup-hp-01`** → I assign a clear system name for logs and identification.  
+- **`cat >> /etc/hosts <<'EOF' ... EOF`** → I append host entries in one step using a here-doc.  
+- **`hostname`** → I verify the hostname change took effect.
+  
 ---
 
 ### 3️⃣ Verify Functionality
 ### I perform test captures and log entries to ensure that packet capturing and logging are working properly before adding bait content.
 
 # 🖥️ Bash Shell — What Is It Doing?
+- **`mkdir -p /var/honeypot/captures`** → I create directories safely; **`-p`** prevents errors if they already exist.  
+- **`tcpdump -i any -w /var/honeypot/captures/test.pcap -c 1`** → I capture 1 packet to verify packet capture works.  
+- **`logger "honeypot rsyslog test"`** → I send a test message to syslog to verify logging.
 
 ### 4️⃣ Create Honeypot User & Directories
 ### I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
 
 # 🖥️ Bash Shell — What Is It Doing?
+- **`useradd -m -s /sbin/nologin honeypot`** → I create a restricted user to run honeypot processes safely.  
+- **`chown -R honeypot:honeypot /var/log/honeypot`** → I give ownership of logs to the honeypot user.  
+- **`chmod 750 /var/log/honeypot`** → I set directory permissions to restrict access.
 
 ### 5️⃣ Lock Down the Network
 ### I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
 
 # 🖥️ Bash Shell — What Is It Doing?
+- **`ip link show`** → I find the correct interface name for firewall rules.  
+- **`firewall-cmd --permanent --zone=drop --add-interface=ens33`** → I block outbound traffic to isolate the honeypot.  
+- **`firewall-cmd --reload`** → I apply the firewall changes immediately.
 
 ### 6️⃣ Test Logging & Captures
 ### I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
 
 # 🖥️ Bash Shell — What Is It Doing?
-
+- **`tcpdump -i any -w /var/honeypot/captures/test.pcap -c 10`** → I capture multiple packets to confirm monitoring works.  
+- **`logger "Test honeypot log message"`** → I generate a test log entry for verification.  
+- **`ls -lh /var/honeypot/captures/test.pcap`** → I confirm the capture file exists and has size.
+- 
 ### 7️⃣ Post-Setup Verification
 ### I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
 
 # 🖥️ Bash Shell — What Is It Doing?
+- **`hostname`** → I double-check the hostname is correct.  
+- **`ls -ld /var/log/honeypot /var/honeypot/captures`** → I verify directories, ownership, and permissions.  
+- **`systemctl status --no-pager rsyslog firewalld`** → I confirm critical services are running properly.
 
 ---
 
