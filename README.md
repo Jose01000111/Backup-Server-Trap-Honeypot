@@ -66,6 +66,8 @@ I update the system and install all required utilities. I enable logging and fir
 - **`tcpdump -i any -w /var/honeypot/captures/test.pcap -c 1`** → I capture 1 packet to verify packet capture works.  
 - **`logger "honeypot rsyslog test"`** → I send a test message to syslog to verify logging.
 
+---
+
 ### 4️⃣ Create Honeypot User & Directories
 ### I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
 
@@ -75,6 +77,8 @@ I update the system and install all required utilities. I enable logging and fir
 - **`useradd -m -s /sbin/nologin honeypot`** → I create a restricted user to run honeypot processes safely.  
 - **`chown -R honeypot:honeypot /var/log/honeypot`** → I give ownership of logs to the honeypot user.  
 - **`chmod 750 /var/log/honeypot`** → I set directory permissions to restrict access.
+
+---
 
 ### 5️⃣ Lock Down the Network
 ### I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
@@ -88,6 +92,8 @@ I update the system and install all required utilities. I enable logging and fir
 - **`firewall-cmd --permanent --zone=drop --add-interface=ens33`** → I block outbound traffic to isolate the honeypot.  
 - **`firewall-cmd --reload`** → I apply the firewall changes immediately.
 
+---
+
 ### 6️⃣ Test Logging & Captures
 ### I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
 
@@ -99,6 +105,8 @@ I update the system and install all required utilities. I enable logging and fir
 - **`tcpdump -i any -w /var/honeypot/captures/test.pcap -c 10`** → I capture multiple packets to confirm monitoring works.  
 - **`logger "Test honeypot log message"`** → I generate a test log entry for verification.  
 - **`ls -lh /var/honeypot/captures/test.pcap`** → I confirm the capture file exists and has size.
+
+---
 
 ### 7️⃣ Post-Setup Verification
 ### I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
