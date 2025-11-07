@@ -121,6 +121,19 @@ I update the system and install all required utilities. I enable logging and fir
 - **`systemctl status --no-pager rsyslog firewalld`** → I confirm critical services are running properly.
 
 ---
+### 8️⃣ Optional — Packet Capture Rotation (Cron)
+### I automate network packet captures to run at regular intervals, helping me collect evidence over time without manual intervention.
+
+# 🖥️ Bash Shell — What Is It Doing?
+- **Ensure cron service is running** → `sudo systemctl enable --now crond` → I make sure scheduled tasks can execute automatically.  
+- **Create cron job** → I set up a job that runs every 30 minutes to capture packets:  
+  - Files are limited to 100MB each.  
+  - Stored in `/var/honeypot/captures`.  
+  - Filenames include the date and time for easy tracking.  
+- **Run as honeypot user** → Ensures the job has proper permissions without exposing root unnecessarily.  
+- **Verify cron file** → `ls -l /etc/cron.d/` → I check that the cron file exists and permissions are correct so the job can write capture files.
+
+---
 
 ## 📈 Next Steps
 - I plan to forward selected logs and captures to a SIEM for visualization and correlation.  
