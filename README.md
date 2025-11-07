@@ -57,6 +57,10 @@ I update the system and install all required utilities. I enable logging and fir
 ### 3️⃣ Verify Functionality
 ### I perform test captures and log entries to ensure that packet capturing and logging are working properly before adding bait content.
 
+<img width="1013" height="362" alt="XIbYKIw" src="https://github.com/user-attachments/assets/2aa7ee29-71ba-4c67-9d48-f5fe7c5f3cea" />
+
+<img width="952" height="39" alt="y1OuTbz" src="https://github.com/user-attachments/assets/2637effd-db58-4d5e-b2e8-6353377bffa4" />
+
 # 🖥️ Bash Shell — What Is It Doing?
 - **`mkdir -p /var/honeypot/captures`** → I create directories safely; **`-p`** prevents errors if they already exist.  
 - **`tcpdump -i any -w /var/honeypot/captures/test.pcap -c 1`** → I capture 1 packet to verify packet capture works.  
@@ -64,6 +68,8 @@ I update the system and install all required utilities. I enable logging and fir
 
 ### 4️⃣ Create Honeypot User & Directories
 ### I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
+
+<img width="1006" height="443" alt="68kgIxq" src="https://github.com/user-attachments/assets/b15f8c54-094e-404c-a806-408c69b5403f" />
 
 # 🖥️ Bash Shell — What Is It Doing?
 - **`useradd -m -s /sbin/nologin honeypot`** → I create a restricted user to run honeypot processes safely.  
@@ -73,6 +79,10 @@ I update the system and install all required utilities. I enable logging and fir
 ### 5️⃣ Lock Down the Network
 ### I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
 
+<img width="1014" height="146" alt="9baG0rl" src="https://github.com/user-attachments/assets/0575ad1d-3cf9-4811-9ce7-055fb513c06d" />
+
+<img width="1002" height="548" alt="ARrUwbg" src="https://github.com/user-attachments/assets/832e6ccf-ece1-4d18-8fd8-b5d6a565e0c6" />
+
 # 🖥️ Bash Shell — What Is It Doing?
 - **`ip link show`** → I find the correct interface name for firewall rules.  
 - **`firewall-cmd --permanent --zone=drop --add-interface=ens33`** → I block outbound traffic to isolate the honeypot.  
@@ -81,13 +91,21 @@ I update the system and install all required utilities. I enable logging and fir
 ### 6️⃣ Test Logging & Captures
 ### I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
 
+<img width="1006" height="340" alt="avWcwK5" src="https://github.com/user-attachments/assets/ef16361a-d7a3-4087-98e1-b46163f6e26f" />
+
+<img width="1003" height="144" alt="USsEO7R" src="https://github.com/user-attachments/assets/797e123b-ac61-4932-b225-b4aec64cc68e" />
+
 # 🖥️ Bash Shell — What Is It Doing?
 - **`tcpdump -i any -w /var/honeypot/captures/test.pcap -c 10`** → I capture multiple packets to confirm monitoring works.  
 - **`logger "Test honeypot log message"`** → I generate a test log entry for verification.  
 - **`ls -lh /var/honeypot/captures/test.pcap`** → I confirm the capture file exists and has size.
-- 
+
 ### 7️⃣ Post-Setup Verification
 ### I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
+
+<img width="1017" height="268" alt="Im2LvKL" src="https://github.com/user-attachments/assets/49cc1638-8603-46da-86f3-63a105244355" />
+
+<img width="1012" height="300" alt="IACeGNk" src="https://github.com/user-attachments/assets/b338126e-f184-46cd-b774-beeeb2aaae00" />
 
 # 🖥️ Bash Shell — What Is It Doing?
 - **`hostname`** → I double-check the hostname is correct.  
