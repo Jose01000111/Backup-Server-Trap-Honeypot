@@ -38,29 +38,40 @@ I update the system and install all required utilities. I enable logging and fir
 
 <img width="1009" height="685" alt="2V0K7Bu" src="https://github.com/user-attachments/assets/9a1a4664-5aa4-4ef0-890f-0b2208bd7ad0" />
 
+# 🖥️ Bash Shell — What Is It Doing?
+
 ---
 
 ### 2️⃣ Configure Hostname
 ### I assign a realistic hostname (`backup-HP-01`) and update the hosts file to make the honeypot appear like a corporate backup server. This improves the chances that attackers will interact with it.
 
 <img width="813" height="657" alt="TkPMROL" src="https://github.com/user-attachments/assets/babaaf46-841c-47e0-800e-a7a5fa734ea8" />
+# 🖥️ Bash Shell — What Is It Doing?
 
 ---
 
 ### 3️⃣ Verify Functionality
 ### I perform test captures and log entries to ensure that packet capturing and logging are working properly before adding bait content.
+# 🖥️ Bash Shell — What Is It Doing?
 
 ### 4️⃣ Create Honeypot User & Directories
 ### I create a non-root honeypot user and set up directories for logs and captures. I make sure permissions are configured correctly so all artifacts are safe and isolated.
+# 🖥️ Bash Shell — What Is It Doing?
 
 ### 5️⃣ Lock Down the Network
 ### I block outbound traffic using the firewall to ensure the honeypot cannot be used for pivoting or data exfiltration.
 
+# 🖥️ Bash Shell — What Is It Doing?
+
 ### 6️⃣ Test Logging & Captures
 ### I capture a few packets and log test messages to verify that all data collection mechanisms are functioning correctly.
 
-### 7️⃣ Optional: Add Bait Content
+# 🖥️ Bash Shell — What Is It Doing?
+
+### 7️⃣ Post-Setup Verification
 ### I deploy realistic backup files and banners to attract attacker interaction, generating richer logs and packet captures for analysis.
+
+# 🖥️ Bash Shell — What Is It Doing?
 
 ---
 
