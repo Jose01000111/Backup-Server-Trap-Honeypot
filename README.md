@@ -1,9 +1,6 @@
 # 🛡️ Backup-Server Trap Honeypot 🗄️
 
-## 📖 Summary
-I’m running a Rocky Linux honeypot that simulates a corporate backup server. My goal is to **observe attacker behavior**, study how malicious activity appears in logs and packet captures, and **learn how to produce actionable artifacts** for incident response (IR) and stakeholder reporting.
-
-The honeypot runs in an isolated environment to prevent unauthorized access or exfiltration, while providing realistic bait files and banners to attract potential threats. This setup allows me to **practice detection, analysis, and containment** in a safe, controlled environment.
+## I’m running a Rocky Linux honeypot that simulates a corporate backup server. My goal is to **observe attacker behavior**, study how malicious activity appears in logs and packet captures, and **learn how to produce actionable artifacts** for incident response (IR) and stakeholder reporting. The honeypot runs in an isolated environment to prevent unauthorized access or exfiltration, while providing realistic bait files and banners to attract potential threats. This setup allows me to **practice detection, analysis, and containment** in a safe, controlled environment.
 
 ![uqWrrH0](https://github.com/user-attachments/assets/18b30c27-448c-4111-8209-598f4dece0ef)
 
