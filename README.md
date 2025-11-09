@@ -162,7 +162,7 @@ I update the system and install all required utilities. I enable logging and fir
 
 ---
 
-#### Ensure tcpdump Can Be Used by Honeypot User
+#### Ensure tcpdump Can Be Used by Honeypot User & Handle SELinux Write Permissions
 ### I grant Linux capabilities so the honeypot user can capture network packets without full root privileges.
 
 <img width="738" height="90" alt="tbyJkc6" src="https://github.com/user-attachments/assets/9c8c0e14-4e7b-45c8-b778-492759b661ac" />
@@ -171,18 +171,6 @@ I update the system and install all required utilities. I enable logging and fir
 - `tcpdump` requires `cap_net_raw` and `cap_net_admin` capabilities.
 - Verifying capabilities ensures non-root packet captures succeed.
 - Prevents permission errors during automated captures.
-
----
-
-#### Handle SELinux Write Permissions
-### I adjust SELinux contexts to allow honeypot to write logs and captures without denials.
-
-<img width="738" height="90" alt="tbyJkc6" src="https://github.com/user-attachments/assets/79f0eaaa-c802-4133-92b9-e9321ccab2c9" />
-
-> # 🖥️ Bash Shell — What Is It Doing?
-- Applies the proper security context to `/var/honeypot`.
-- `restorecon` ensures changes take effect.
-- Prevents AVC denials and cron job failures.
 
 ---
 
